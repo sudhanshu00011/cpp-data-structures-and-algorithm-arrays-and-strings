@@ -2,15 +2,13 @@ class Solution {
 public:
 //erd
     vector<int> twoSum(vector<int>& nums, int target) {
-        for (int i = 0; i<nums.size() ; i++) {
-            for ( int j=0 ; j<=i; j++) {
-                if (i==j) {
-                    continue;
-                }
-                else if (nums[i]+nums[j] == target) {
-                    return {i,j};
-                } 
+        map <int,int> mpp;
+        for (int i=0; i<nums.size(); i++) {
+            int more= target-nums[i];
+            if (mpp.find(more) != mpp.end()) {
+                return {mpp[more], i};
             }
+            mpp[nums[i]] = i;
         }
         return {};
     }
