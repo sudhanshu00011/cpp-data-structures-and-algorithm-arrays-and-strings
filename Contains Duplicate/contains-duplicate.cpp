@@ -7,6 +7,5 @@ public:
             if (mpp[nums[i]]==2) return true;
         }
         return false;
-
     }
 };
